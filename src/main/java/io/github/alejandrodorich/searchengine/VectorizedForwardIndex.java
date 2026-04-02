@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
@@ -144,12 +143,10 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
      * 
      * @param vectorA               The first vector, representing a document or query in numerical values, e.g. TF-IDF or token frequency in query.
      * @param vectorB               The second vector, representing a document or query in numerical values, e.g. TF-IDF or token frequency in query.
-     * @param normalizedVectors     True, if the all vectors in 'vectorizedFIndexMap' have been normalized according to their euclidean norm.
-     * @return                      The cosine similarity value.
      * @throws IllegalArgumentException If the length of the given vectors is not the same.
      */
 
-    public double calculateCosineSimilarity(double[] vectorA, double[] vectorB, boolean normalizedVectors) {
+    public double calculateCosineSimilarity(double[] vectorA, double[] vectorB) {
 
         if (vectorA.length != vectorB.length) throw new IllegalArgumentException("The length of the given vectors is not the same.");
 
@@ -220,15 +217,19 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
         }
 
         if (noTokenFoundInIndex) return new ArrayList<>();
+
+        if (normalizedVectors) {
+            normalizeQueryVector(vectorQuery);
+        }
         
-        List<UrlCosineScore> searchResultList = getResultingWebsiteList(vectorQuery, false);
+        List<UrlCosineScore> searchResultList = getResultingWebsiteList(vectorQuery);
         
         return sortResultingWebsiteList(searchResultList);
     }
 
     // Calculate the cosine similarity of each vector in 'vectorizedFIndexMap' and the given vector representation
     // of the query. Returns an unsorted search result list.
-    private List<UrlCosineScore> getResultingWebsiteList(double[] vectorQuery, boolean normalizedVectors) {
+    private List<UrlCosineScore> getResultingWebsiteList(double[] vectorQuery) {
 
         // Check if 'vectorQuery' represents all tokens in 'indexValuesFortokens'
         if (indexValuesForTokens.size() != vectorQuery.length) {
@@ -242,7 +243,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
             // Calculate the cosine similarity of each vector and the given 'vectorQuery'
             UrlCosineScore document = entry.getKey();
             double[] vector = entry.getValue();
-            double cosineSimValue = calculateCosineSimilarity(vector, vectorQuery, normalizedVectors);
+            double cosineSimValue = calculateCosineSimilarity(vector, vectorQuery);
             document.setCosineSimilarity(cosineSimValue);
 
 
@@ -327,10 +328,8 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
      * This method provides a more detailed search compared to 'searchQuery' by allowing the prioritization
      * of tokens based on their given weights in 'weightedQuery'. Tokens with higher weights are prioritized
      * when sorting the search results.
-     * 
      * The method lemmatizes all tokens in the given 'weightedQuery' map and searches for them in the vectorized
-     * forward index. Additionally, all TF-IDF values in the vectorized forward index are normalized in order to
-     * enhance the cosine similarity calculation and enhance its efficiency.
+     * forward index.
      * 
      * The found UrlCosineScore objects are sorted according to the product of their cosine similarity
      * and PageRank values. Since the cosine similarity is calculated taking the weight of each token 
@@ -378,21 +377,20 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
         // Return an empty list if no search results are found
         if (noTokenFoundInIndex) return new ArrayList<>();
 
-        // Normalize the 'vectorQuery'
-        double euclideanNormOfVector = calculateEuclideanNorm(vectorQuery);
-        for (int i = 0; i < vectorQuery.length; i++) {
-            vectorQuery[i] = vectorQuery[i] / euclideanNormOfVector;
+        if (normalizedVectors) {
+            normalizeQueryVector(vectorQuery);
         }
-
-        // Normalize the value of all vectors in 'vectorizedFIndexMap' according to their euclidean norm
-        if (!normalizedVectors) normalizeVectors();
         
-        List<UrlCosineScore> searchResultList = getResultingWebsiteList(vectorQuery, true);
+        List<UrlCosineScore> searchResultList = getResultingWebsiteList(vectorQuery);
         return sortResultingWebsiteList(searchResultList);
     }
 
-    // Normalize the value of all vectors in 'vectorizedFIndexMap' according to their euclidean norm
-    private void normalizeVectors() {   
+    /**
+     * Normalize the value of all vectors in 'vectorizedFIndexMap' according to their euclidean norm
+     */
+    public void normalizeVectors() {
+
+        if (normalizedVectors) return;
 
         // Iterate through all vectors in 'vectorizedFIndexMap' and normalize their values
         for (var entry : vectorizedFIndexMap.entrySet()) {
@@ -406,4 +404,12 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
         }
         normalizedVectors = true;
     }
+
+    // Normalize the the given vector query
+    private void normalizeQueryVector(double[] vectorQuery) {
+        double euclideanNormOfVector = calculateEuclideanNorm(vectorQuery);
+        for (int i = 0; i < vectorQuery.length; i++) {
+            vectorQuery[i] = vectorQuery[i] / euclideanNormOfVector;
+        }
+    } 
 }
