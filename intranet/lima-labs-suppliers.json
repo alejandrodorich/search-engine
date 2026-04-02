@@ -1,0 +1,18 @@
+{
+    "Net-Name": "lima-labs-suppliers",
+    "Subject": "supplier-portal",
+    "TLD": "localhost:8080",
+    "Num-Websites": 50,
+    "Num-Links": 186,
+    "Query-Token": [
+        "obligation"
+    ],
+    "Num-Websites-with-Query": 7,
+    "Query-URLs": [
+        "http://localhost:8080/pages/suppliers/legal.html",
+        "http://localhost:8080/pages/suppliers/supplier-gcp.html"
+    ],
+    "Seed-URLs": [
+        "http://localhost:8080/pages/suppliers/index.html"
+    ]
+}

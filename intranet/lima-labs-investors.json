@@ -1,0 +1,19 @@
+{
+    "Net-Name": "lima-labs-investors",
+    "Subject": "investor-relations",
+    "TLD": "localhost:8080",
+    "Num-Websites": 5,
+    "Num-Links": 14,
+    "Query-Token": [
+        "funding"
+    ],
+    "Num-Websites-with-Query": 2,
+    "Query-URLs": [
+        "http://localhost:8080/pages/investors/funding.html",
+        "http://localhost:8080/pages/investors/index.html",
+        "http://localhost:8080/pages/investors/pitch.html"
+    ],
+    "Seed-URLs": [
+        "http://localhost:8080/pages/investors/index.html"
+    ]
+}

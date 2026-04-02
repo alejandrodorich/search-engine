@@ -1,0 +1,21 @@
+{
+    "Net-Name": "lima-labs-internal",
+    "Subject": "tech-startup",
+    "TLD": "localhost:8080",
+    "Num-Websites": 10,
+    "Num-Links": 30,
+    "Query-Token": [
+        "security"
+    ],
+
+    "Num-Websites-with-Query": 4,
+    "Query-URLs": [
+        "http://localhost:8080/pages/internal/security.html",
+        "http://localhost:8080/pages/internal/careers.html",
+        "http://localhost:8080/pages/internal/products.html",
+        "http://localhost:8080/pages/internal/blog.html"
+    ],
+    "Seed-URLs": [
+        "http://localhost:8080/pages/internal/index.html"
+    ]
+}

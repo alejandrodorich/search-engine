@@ -1,0 +1,23 @@
+{
+    "Net-Name": "lima-labs-customers",
+    "Subject": "customer-portal",
+    "TLD": "localhost:8080",
+    "Num-Websites": 20,
+    "Num-Links": 59,
+    "Query-Token": [
+        "support"
+    ],
+    "Num-Websites-with-Query": 5,
+    "Query-URLs": [
+        "http://localhost:8080/pages/customers/tickets.html",
+        "http://localhost:8080/pages/customers/support.html",
+        "http://localhost:8080/pages/customers/knowledgebase.html",
+        "http://localhost:8080/pages/customers/integration.html",
+        "http://localhost:8080/pages/customers/index.html",
+        "http://localhost:8080/pages/customers/feedback.html"
+    ],
+    "Seed-URLs": [
+        "http://localhost:8080/pages/customers/index.html",
+        "http://localhost:8080/pages/customers/roadmap.html"
+    ]
+}
