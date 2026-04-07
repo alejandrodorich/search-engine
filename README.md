@@ -56,6 +56,7 @@ and test results, refer to the [Project Documentation](Documentation.pdf).
 
 ## 3. Project Structure
 
+```markdown
 search-engine/
 ├── intranet/                   # Local mock intranet (Lima-Labs)
 │   ├── serve.py                # Python HTTP server
@@ -69,6 +70,7 @@ search-engine/
 ├── .gitignore
 ├── Documentation.pdf           # Full project documentation
 └── pom.xml                     # Maven build configuration
+```
 
 > **Note:** The `figures/` directory is initially empty. 
 > The graph visualizations are generated automatically 
