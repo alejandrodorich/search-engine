@@ -21,9 +21,9 @@ import io.github.alejandrodorich.searchengine.Crawler.PageRankNotCalculated;
  * in order to index all the retrieved website data. Allows users to perform regular and
  * weighted searches in the intranet. 
  */
-public final class App {
+public final class LimaLabsSearchEngine {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LimaLabsSearchEngine.class);
     private static List<JsonObject> testJSONs = new ArrayList<>();
     private static Scanner input = new Scanner(System.in);
 
