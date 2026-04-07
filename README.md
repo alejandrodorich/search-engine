@@ -127,7 +127,7 @@ If using VSCode or VSCodium, the following extensions are recommended:
 
 The following steps explain how to interact with the LimaLabs Search Engine via the terminal.
 
-### 1. Start the Local Server
+### 5.1. Start the Local Server
 Before running the program, start the local intranet server.
 Open a terminal and run:
 ```bash
@@ -136,7 +136,7 @@ python3 serve.py
 ```
 The server will be available at: `http://localhost:8080`
 
-### 2. Run the Program
+### 5.2. Run the Program
 
 **Option 1: Via IDE (Recommended)**
 Navigate to `LimaLabsSearchEngine` and run the class directly.
@@ -153,13 +153,13 @@ The terminal will display:
 - `Starting search-engine for Lima-Labs...`
 - `Java awt GraphicEnvironment headless: true`
 
-### 3. Choose Your Search Method
+### 5.3. Choose Your Search Method
 After a few seconds, the following prompt will appear:
 - `Please choose between a normal or weighted query (Input "normal" or "weighted")`
 
 Click next to the prompt and enter your preferred search method.
 
-### 4. Normal Search
+### 5.4. Normal Search
 If you chose `normal`, the following prompt will be displayed:
 - `Search: `
 
@@ -167,9 +167,9 @@ Enter your query. The program will search the entire intranet and display all re
 If no relevant results are found, the terminal will display:
 - `No relevant results found`
 
-Afterwards, see [Step 6](#6-continue-or-exit).
+Afterwards, see [Step 6](#56-continue-or-exit).
 
-### 5. Weighted Search
+### 5.5. Weighted Search
 If you chose `weighted`, the following prompts will be displayed:
 - `In order to perform a search, you need to input each query token and weight separately.`
 - `To finish the search please write "finished" as an input token.`
@@ -193,13 +193,13 @@ Enter a weight between 1 and 10.
 
 You can continue adding tokens and weights. To run the search, enter `finished` as the next token.
 
-Afterwards, see [Step 6](#6-continue-or-exit).
+Afterwards, see [Step 6](#56-continue-or-exit).
 
-### 6. Continue or Exit
+### 5.6. Continue or Exit
 After completing a search, the following prompt will appear:
 - `Do you want to perform more searches? (Enter "y" for yes, any other key to exit)`
 
-- Enter `y` to perform another search and return to [Step 3](#3-choose-your-search-method).
+- Enter `y` to perform another search and return to [Step 3](#53-choose-your-search-method).
 - Enter any other key to exit and terminate the program.
 
 
@@ -207,10 +207,10 @@ After completing a search, the following prompt will appear:
 
 This section explains how to generate graphs that visualize the references between crawled sites.
 
-### 1. Prerequisites
-Before running the program, make sure that the local server is running, as described in [Start the local server](#1-start-the-local-server).
+### 6.1. Prerequisites
+Before running the program, make sure that the local server is running, as described in [Start the local server](#51-start-the-local-server).
 
-### 2. Run the Program
+### 6.2. Run the Program
 
 **Option 1: Via IDE (Recommended)**
 Navigate to `DirectedGraph` and run the class directly.
