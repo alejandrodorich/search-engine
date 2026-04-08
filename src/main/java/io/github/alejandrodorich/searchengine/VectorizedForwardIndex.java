@@ -335,11 +335,12 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
      * and PageRank values. Since the cosine similarity is calculated taking the weight of each token 
      * into account, the given weights have a direct influence over the order of the search results.
      * 
-     * @param weightedQuery         The tokenized search request, where each token is assigned a weight
-     *                              representing its importance.
-     * @return                      The sorted search results depicting all UrlCosineScore elements.
+     * @param weightedQuery             The tokenized search request, where each token is assigned a weight
+     *                                  representing its importance.
+     * @return                          The sorted search results depicting all UrlCosineScore elements.
+     * @throws IllegalArgumentException If the map contains token with a weight <1 or >10.
      */
-    public List<UrlCosineScore> searchWeightedQuery(Map<String, Double> weightedQuery) {
+    public List<UrlCosineScore> searchWeightedQuery(Map<String, Double> weightedQuery) throws IllegalArgumentException {
 
         // Check that all string elements in 'weightedQuery' are single tokens and that their
         // given weight is a positive number
@@ -349,7 +350,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
             if (searchRequestTokens.length != 1) throw new IllegalArgumentException("Only one token per index of weightedQuery allowed.");
 
             double weight = entry.getValue();
-            if (weight < 0) throw new IllegalArgumentException("The weight of each token has to be a positive number.");
+            if (weight < 1 || weight > 10) throw new IllegalArgumentException("Token weight must be between 1 and 10.");
         }
 
         // Set 'pipeline' as a text processing pipeline setup for tokenization and lemmatization
