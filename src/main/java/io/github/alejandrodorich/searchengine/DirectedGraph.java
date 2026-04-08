@@ -95,7 +95,7 @@ public class DirectedGraph {
     }
 
     /**
-     * Create a vectorized forward index out of the data in the given reverse index and searches
+     * Create a vectorized forward index out of the data in the given reverse index and searche
      * for the given search word in the index. Return the sorted search results.
      * 
      * @param searchWord            The given query that has to be searched for in the vectorized 
@@ -121,7 +121,7 @@ public class DirectedGraph {
 
     /**
      * Create a graph that sets a node for each Website object in the given 'documents' list. Names each node
-     * as its corresponding URL. Adds directed edges to illustrate the references among the site and return
+     * as its corresponding URL. Add directed edges to illustrate the references among the site and return
      * the graph.
      * 
      * @param documents The data gathered by the crawler during the crawling process.
@@ -193,7 +193,7 @@ public class DirectedGraph {
     
     /**
      * Add the provided PageRank values out of 'crawledWebsites' to the edges of the given graph.
-     * Additionally, scales all nodes in the graph according to the PageRank of their corresponding
+     * Additionally, scale all nodes in the graph according to the PageRank of their corresponding
      * Website object.
      * 
      * @param graph                 The graph to which the PageRank values will be added.
@@ -271,7 +271,7 @@ public class DirectedGraph {
     }
 
     /**
-     * Adds the provided 'relevanceFactor' values out of 'searchResultsVectorizedFIndex' to the nodes
+     * Add the provided 'relevanceFactor' values out of 'searchResultsVectorizedFIndex' to the nodes
      * of the given graph.
      * 
      * @param graph                                 The graph to which the 'relevanceFactor' values will be added.
@@ -309,7 +309,7 @@ public class DirectedGraph {
      * @param graph                             The graph in which the nodes will be changed.
      * @param searchResultsVectorizedFIndex     The resulting UrlCosineScore list obtained from searching for a 
      *                                          query in a vectorized forward index.
-     * @throws IllegalArgumentException    If the provided graph does not contain the URLs given in the search
+     * @throws IllegalArgumentException         If the provided graph does not contain the URLs given in the search
      *                                          results.
      * 
      */
@@ -376,7 +376,7 @@ public class DirectedGraph {
 
     /**
      * Store the given graph in the 'figures' folder of the project directory as a PNG file
-     * under the given file name and displays the query in the legend of the created file.
+     * under the given file name and display the query in the legend of the created file.
      * 
      * @param graph         The graph to be stored as a PNG file.
      * @param fileName      The name under which the file will be stored.
@@ -415,7 +415,7 @@ public class DirectedGraph {
      */
     public static void main(String[] args) {
 
-        // Crawl the first 8 sites in the lima-labs-customer and store all relevant data under 'websiteList'
+        // Crawl the first 8 sites in the lima-labs-customer network and store all relevant data under 'websiteList'
         List<Website> crawledSites = crawlThroughNetwork(8);
 
         // Delete all reference links in websites out of 'websiteList' that are irrelevant

@@ -34,7 +34,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
     private boolean normalizedVectors;
     
     // Represent the vectorized forward index
-    // Maps each UrlCosineScore object to a vector of TF-IDF values corresponding to all tokens in 'indexValuesForTokens'
+    // Map each UrlCosineScore object to a vector of TF-IDF values corresponding to all tokens in 'indexValuesForTokens'
     private Map<UrlCosineScore, double[]> vectorizedFIndexMap = new LinkedHashMap<>();
 
     /**
@@ -158,7 +158,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
         }
         
         // Check if the given vectors have been normalized according to their euclidean norm
-        // and calculate and returns the cosine similarity accordingly
+        // and calculate and return the cosine similarity accordingly
         if (normalizedVectors) {
              // Return the cosine similarity of 'vectorA' and 'vectorB'
             return sumOfMultiplication;
@@ -228,7 +228,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
     }
 
     // Calculate the cosine similarity of each vector in 'vectorizedFIndexMap' and the given vector representation
-    // of the query. Returns an unsorted search result list.
+    // of the query. Return an unsorted search result list.
     private List<UrlCosineScore> getResultingWebsiteList(double[] vectorQuery) {
 
         // Check if 'vectorQuery' represents all tokens in 'indexValuesFortokens'
@@ -258,7 +258,7 @@ public class VectorizedForwardIndex extends Index<UrlCosineScore> {
     }
 
     // Calculate the relevance of each object in the given 'websiteList' according to their PageRank and
-    // cosine similarity values and sorts the list accordingly.
+    // cosine similarity values and sort the list accordingly.
     private List<UrlCosineScore> sortResultingWebsiteList(List<UrlCosineScore> websiteList) {
 
         /*

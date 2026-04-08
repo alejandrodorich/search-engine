@@ -21,7 +21,7 @@ public abstract class Index<T extends UrlData>{
 
     /**
      * Build and return a StanfordCoreNLP pipeline setup for tokenization
-     * and lemmatization. Ensures that the pipeline is built only once.
+     * and lemmatization. Ensure that the pipeline is built only once.
      * 
      * @return The pipeline for text processing.
      */
@@ -36,7 +36,7 @@ public abstract class Index<T extends UrlData>{
     }
 
     /**
-     * Lemmatize and tokenize the given request and returns the tokens in a String list.
+     * Lemmatize and tokenize the given request and return the tokens in a String list.
      * Stop-words are removed from the list.
      * 
      * @param request   The text that will be lemmatized and tokenized
@@ -75,7 +75,7 @@ public abstract class Index<T extends UrlData>{
     }
 
     /**
-     * Lemmatize and tokenize the given search request, then searches for
+     * Lemmatize and tokenize the given search request, then searche for
      * these tokens in the index. Return a list containing all relevant URLs,
      * sorted according to their relevance.
      * 

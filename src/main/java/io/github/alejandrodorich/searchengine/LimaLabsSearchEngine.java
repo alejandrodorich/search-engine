@@ -17,8 +17,8 @@ import io.github.alejandrodorich.searchengine.Crawler.PageRankNotCalculated;
 
 /**
  * Main class of the search-engine project for the Lima-Labs company.
- * Crawls the entire Lima-Labs Intranet and uses ReverseIndex and VectorizedForwardIndex
- * in order to index all the retrieved website data. Allows users to perform regular and
+ * Crawl the entire Lima-Labs intranet and use ReverseIndex and VectorizedForwardIndex
+ * in order to index all the retrieved website data. Allow users to perform regular and
  * weighted searches in the intranet. 
  */
 public final class LimaLabsSearchEngine {
@@ -168,8 +168,8 @@ public final class LimaLabsSearchEngine {
     /**
      * Main method: Entry point for the search engine.
      * 
-     * Initializes the system, crawls the entire-lima labs network, indexes the data, handles user queries
-     * and displays the results in the console. Supports both normal and weighted searches.
+     * Initialize the system, crawl the entire Lima-Labs network, index the data, handle user queries
+     * and display the results in the console. Support both normal and weighted searches.
      */
 
     public static void main(String[] args) {
@@ -199,9 +199,10 @@ public final class LimaLabsSearchEngine {
               
                 System.out.print("Search: ");
                 String searchWords = input.nextLine();
-            
-                    List<UrlCosineScore> searchResults = index.searchQuery(searchWords);
-                    printResults(searchResults, sitesData);
+                
+                System.out.println();
+                List<UrlCosineScore> searchResults = index.searchQuery(searchWords);
+                printResults(searchResults, sitesData);
                 
             } else {
                 Map<String, Double> weightedQuery = buildWeightedMapWithUserInput();

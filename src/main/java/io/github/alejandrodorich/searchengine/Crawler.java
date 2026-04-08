@@ -18,7 +18,7 @@ import java.util.Map;
  * Crawl websites and all external URLs found within them, gathering relevant information such as
  * URLs, titles, headers and content..
  * 
- * Supports Page Rank calculation and tracking of crawled sites.
+ * Support Page Rank calculation and tracking of crawled sites.
  * 
  * @see PageRankCalculator      Used to calculate the PageRank values for crawled websites.
  * @see Queue                   Manages URLs to be crawled.
@@ -121,7 +121,7 @@ public class Crawler {
 
     /**
      * Calculate the PageRank for all crawled sites and update their values in 'crawledSitesData'.
-     * Uses the PageRankCalculator to perform the calculation.
+     * Use the PageRankCalculator to perform the calculation.
      */
     public void calculatePageRank() {   
         PageRankCalculator pageRankCalculator = new PageRankCalculator(crawledSitesData);

@@ -163,7 +163,7 @@ public class ReverseIndex extends Index<UrlTokenScore> {
 
     // Calculate the IDF (inverted document frequency) of a given token in a given reverse index
     private double calculateIDF(String token, Map<String, List<UrlTokenScore>> reverseIndexMap) {
-        // Get amount of URLs in the basic forward index
+        // Get the amount of URLs in the basic forward index
         double numbOfDocs = basicForwardIndexMap.size();
 
         // Get the amount of URLs that contain the given token in their data
@@ -196,7 +196,7 @@ public class ReverseIndex extends Index<UrlTokenScore> {
         // Store all the search results
         List<UrlTokenScore> searchResults = new ArrayList<>();
 
-        // Iterate through all lemmatized tokens and adds all UrlTokenScore objects that contain these tokens to 'searchResults'.
+        // Iterate through all lemmatized tokens and add all UrlTokenScore objects that contain these tokens to 'searchResults'.
         for (String token : tokLemmaQuery) {
             if (reverseIndexMap.containsKey(token)) {
                 List<UrlTokenScore> foundDocuments = reverseIndexMap.get(token);

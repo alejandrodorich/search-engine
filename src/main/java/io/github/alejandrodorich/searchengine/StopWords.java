@@ -13,7 +13,7 @@ import java.util.Set;
  */
 final class StopWords {
 
-    //Prevent instantiation of StopWords
+    // Prevent instantiation of StopWords
     private StopWords() {}
 
     static final Set<String> stopWordsSet = new HashSet<>(Arrays.asList("able", "about", "above", "abroad", 

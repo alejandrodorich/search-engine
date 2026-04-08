@@ -21,8 +21,8 @@ public class PageRankCalculator {
     private double rankSource;
 
     /**
-     * Constructs a PageRankCalculator with the given list of websites.
-     * Initializes the PageRank for each website to 1/numOfWebsites.
+     * Construct a PageRankCalculator with the given list of websites.
+     * Initialize the PageRank for each website to 1/numOfWebsites.
      * 
      * @param websiteList   The list of websites gathered by the crawler.
      */
@@ -69,7 +69,7 @@ public class PageRankCalculator {
                 newPageRankValues.put(site.url, newPageRank);
             }
 
-            // Stores all new calculated PageRanks within the current iteration in 'websiteList'
+            // Store all new calculated PageRanks within the current iteration in 'websiteList'
             for (Website site : websiteList) {
                 site.setPageRank(newPageRankValues.get(site.url));
             }

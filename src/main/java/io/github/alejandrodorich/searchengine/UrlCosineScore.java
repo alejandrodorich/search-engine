@@ -91,7 +91,7 @@ public class UrlCosineScore extends UrlData {
     }
 
     /**
-     * Returns the normalized PageRank value for this object required in order to calculate the 'relevanceFactor'.
+     * Return the normalized PageRank value for this object required in order to calculate the 'relevanceFactor'.
      * 
      * @return  The normalized PageRank.
      * @throws  IllegalStateException If the normalized PageRank has not been calculated.
@@ -102,7 +102,7 @@ public class UrlCosineScore extends UrlData {
     }
 
     /**
-     * Returns the cosine similarity required in order to calculate the 'relevanceFactor'.
+     * Return the cosine similarity required in order to calculate the 'relevanceFactor'.
      * 
      * @return  The normalized cosine similarity value.
      * @throws  IllegalStateException If the normalized cosine similarity has not been calculated.
@@ -113,7 +113,7 @@ public class UrlCosineScore extends UrlData {
     }
 
     /**
-     * Returns the PageRank value calculated during the crawling process for this object.
+     * Return the PageRank value calculated during the crawling process for this object.
      * 
      * @return  The PageRank value.
      * @throws  IllegalStateException If the PageRank has not been calculated.
@@ -125,7 +125,7 @@ public class UrlCosineScore extends UrlData {
     }
     
     /**
-     * Returns the relevance factor for this URL, used in order to sort the search results
+     * Return the relevance factor for this URL used in order to sort the search results
      * in a VectorizedForwardIndex.
      * 
      * @return  The relevance factor required in order to sort a list of UrlCosineScore objects.
